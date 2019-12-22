@@ -5,6 +5,13 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import {Provider} from 'react-redux';
 import store from './store';
 
+//Componentes
+import Header from './componentes/Header';
+import NuevoProducto from './componentes/NuevoProducto';
+import Productos from './componentes/Productos';
+import EditarProducto from './componentes/EditarProducto';
+
+
 function App() {
   return (
     <Router>
