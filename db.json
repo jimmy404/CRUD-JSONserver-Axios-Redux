@@ -1,14 +1,19 @@
 {
-    "libros": [
-        {
-            "id": 1,
-            "nombre": "Aprendiendo Redux",
-            "precio": 30
-        },
-        {
-            "id": 2,
-            "nombre": "Aprendiendo Angular",
-            "precio": 25
-        }
-    ]
+  "libros": [
+    {
+      "id": 1,
+      "nombre": "Aprendiendo Redux",
+      "precio": 30
+    },
+    {
+      "id": 2,
+      "nombre": "Aprendiendo Angular",
+      "precio": 25
+    },
+    {
+      "nombre": "Aprendiendo Redux",
+      "precio": "80",
+      "id": 3
+    }
+  ]
 }
