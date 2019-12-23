@@ -15,3 +15,15 @@ export const iniciarValidacion = () => {
         type: VALIDAR_FORMULARIO
     }
 }
+
+export const validacionExito = () => {
+    return{
+        type: VALIDAR_FORMULARIO_EXITO
+    }
+}
+
+export const validacionError = () => {
+    return{
+        type: VALIDAR_FORMULARIO_ERROR
+    }
+}
