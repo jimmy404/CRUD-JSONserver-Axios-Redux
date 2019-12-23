@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 
 //redux
 import{crearNuevoProductoAction} from '../actions/productosActions';
-import {validarFormularioAction} from '../actions/validacionActions'
-import {useDispatch} from 'react-redux';
+import {validarFormularioAction, validacionExito, validacionError} from '../actions/validacionActions'
+import {useDispatch, useSelector} from 'react-redux';
 
-const NuevoProducto = () => {
+const NuevoProducto = ({history}) => {
 
 
     //State
@@ -16,6 +16,11 @@ const NuevoProducto = () => {
     const dispatch = useDispatch();
     const agregarProducto = (producto) => dispatch(crearNuevoProductoAction(producto));
     const validarFormulario = () => dispatch(validarFormularioAction() );
+    const exitoValidacion = () => dispatch(validacionExito());
+    const errorValidacion = () => dispatch(validacionError());
+
+    //Obtener los datos del state
+    const error = useSelector((state) => state.error.error)
 
     //Agregar nuevo producto
     const submitNuevoProducto = e => {
@@ -27,17 +32,20 @@ const NuevoProducto = () => {
 
         //validar el formulario
         if(nombre.trim() === '' || precio.trim() === ''){
-            console.log('error validacion');
+            errorValidacion();
             return;
         }
 
         //Si pasa la validacion
+        exitoValidacion();
+
+
+        //crear el nuevo producto
         agregarProducto({
             nombre, precio
         });
-        //crear el nuevo producto
-
         //redireccionar
+        history.push('/')
     }
 
     return (
@@ -70,7 +78,7 @@ const NuevoProducto = () => {
 
                             <button type="submit" className="btn btn-primary font-weight-bold text-uppercase d-block w-100">Agregar</button>
                         </form>
-
+                            {error ? <div className="font-weight-bold alert alert-danger text-center mt-4">Todos los campos son obligatorios</div>: null}
                     </div>
                 </div>
             </div>
