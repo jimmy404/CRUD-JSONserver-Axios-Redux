@@ -4,9 +4,9 @@ import {
     VALIDAR_FORMULARIO_ERROR
 } from '../types';
 
-export function validarFormularioAction (){
-    return (dispatch) => {
-        dispatch( iniciarValidacion())
+export function validarFormularioAction(){
+    return dispatch => {
+        dispatch( iniciarValidacion() )
     }
 }
 
@@ -15,15 +15,15 @@ export const iniciarValidacion = () => {
         type: VALIDAR_FORMULARIO
     }
 }
-
 export const validacionExito = () => {
-    return{
+    return {
         type: VALIDAR_FORMULARIO_EXITO
     }
 }
 
+
 export const validacionError = () => {
-    return{
+    return {
         type: VALIDAR_FORMULARIO_ERROR
     }
 }

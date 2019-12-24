@@ -11,10 +11,10 @@ import {
 const initialState = {
     productos: [],
     error: null,
-    loading: false
+    loading: false,
 }
 
-export default function(state = initialState, action){
+export default function(state = initialState, action) {
     switch(action.type){
         case AGREGAR_PRODUCTO:
             return{
@@ -35,22 +35,22 @@ export default function(state = initialState, action){
             case COMENZAR_DESCARGA_PRODUCTOS:
                 return {
                     ...state,
-                    loading: true
+                    loading: true,
                 }
             case DESCARGA_PRODUCTOS_EXITOSA:
-                return{
-                    ...state,
-                    productos: action,payload,
-                    loading: false,
-                    error: false
-                }
+                    return {
+                        ...state,
+                        productos: action.payload,
+                        loading: false,
+                        error: false
+                    }
             case DESCARGA_PRODUCTOS_ERROR:
-                return {
-                    ...state,
-                    productos: [],
-                    error: true,
-                    loading: false
-                }
+                        return {
+                            ...state,
+                            productos: [],
+                            error: true,
+                            loading: false,
+                        }
             default:
                 return state;
     }
